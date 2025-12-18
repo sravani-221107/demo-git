@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport">
+        <title>Criminal Records Databases</title>
+        <style>
+        body{
+            color:white;
+            background-color:#f4f6f8;
+        }
+        header{ 
+            background-color:rgb(2, 2, 109);
+            color:white;
+            padding:10px;
+            text-align:center;
+        }
+        nav{
+            background-color:rgb(1, 1, 68);
+            padding:10px;
+            text-align:center;
+        }
+        nav a{
+            color:white;
+            text-decoration: rgb(220, 255, 223);
+            margin:5px;
+            font-weight:bold;
+        }
+        nav a:hover{
+            text-decoration: underline;
+        }
+        .hero{
+            text-align:center;
+            background-color:white;
+            color:darkblue;
+        }
+        .hero h2{
+            background-color:white;
+            color:darkblue;
+            margin-bottom:5px;
+        }
+        .record-container{
+            display:flex;
+            justify-content:space-around;
+            gap:15px;
+            padding:10px;
+        }
+        .record-card{
+            background-color:rgb(2, 2, 109);
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px;
+            transition: transform 0.3s;
+        }
+        .record-card:hover{
+            transform:scale(1.05)
+        }
+        .record-card h3{
+            margin-bottom:10px;
+            color:white;
+            text-align:center;
+        }
+        .table-section{
+            padding:30px;
+        }
+        table{
+            width:80%;
+            border-collapse: collapse;
+            background-color:white;
+        }
+        th,td{
+            color:black;
+            border:1px solid #ccc;
+            padding:12px;
+            text-align:center;
+        }
+        th{
+            background-color:darkblue;
+            color:black;
+        }
+
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Criminal Records</h1>
+            <p>Official crime information portal</p>
+        </header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="records.html">Records</a>
+            <a href="#">search</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <section class="hero">
+            <h2>Criminal Records Management System</h2>
+            <p>Information about criminals</p>
+        </section>
+        <section class="records" align="center">
+            <h2 style="color:darkblue">Criminal Profiles</h2>
+            <div class="record-container">
+                <div class="record-card" align=""center>
+                    <h3>Name: Ravi Kumar</h3>
+                    <p>Crime: Murder</p>
+                    <p>Case No: 101</p>
+                    <p>Status: Arrested</p>
+                </div>
+                <div class="record-card">
+                    <h3>Name: Suresh Babu</h3>
+                    <p>Crime: Robbery</p>
+                    <p>Case No: 103</p>
+                    <p>Status: Investigating</p>
+                </div>
+                <div class="record-card">
+                    <h3>Name:Kapil varma</h3>
+                    <p>Crime: Murder</p>
+                    <p>Case No: 101</p>
+                    <p>Status: Arrested</p>
+                </div>
+                <div class="record-card">
+                    <h3>Name: Ravi Kumar</h3>
+                    <p>Crime: Rape attempt</p>
+                    <p>Case No: 106</p>
+                    <p>Status:Searching</p>
+                </div>
+            </div>
+
+        </section>
+        <section class="Table section">
+            <h2 style="text-align:center;margin-bottom:20px;color:darkblue;">
+            Criminal Record Table</h2>
+            <table align="center">
+                <tr>
+                    <th>Name</th>
+                    <th>case</th>
+                    <th>Crime</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Ravi Kumar</td>
+                    <td>Murder</td>
+                    <td>101</td>
+                    <td>Arrested</td>
+                </tr>
+                <tr>
+                    <td>Suresh Babu</td>
+                    <td>Robbery</td>
+                    <td>103</td>
+                    <td>Investigating</td>
+                </tr>
+                <tr>
+                    <td>kapil varma</td>
+                    <td>Murder</td>
+                    <td>101</td>
+                    <td>Arrested</td>
+                </tr>
+                <tr>
+                    <td>Ravi Kumar</td>
+                    <td>Rape attempt</td>
+                    <td>106</td>
+                    <td>Searching</td>
+                </tr>
+            </table>
+        </section>
+    </body>
+
+</html>
