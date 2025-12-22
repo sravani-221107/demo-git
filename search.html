@@ -5,9 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <link rel="stylesheet" type="text/css" href="vscss/style.css">
+    <style>
+        form{
+        text-align:center;
+        background-image:url("images/cs3.jpeg");
+        color:black;
+        gap:20px;
+        margin:auto;
+        width:440px;
+        height:507px;
+        }
+    </style>
 </head>
 <body>
     <h1>Recent Information</h1>
+    <table style="background-color:azure;text-align:center;padding:30px;border:1px solid #ccc;border-color:black;border-collapse:collapse;width:60%;margin:auto;">
+        <tr style="background-color:aqua;">
+            <th style="border:1px solid black;">Name</th>
+            <th style="border:1px solid black;">Case</th>
+            <th style="border:1px solid black;">crime</th>
+        </tr>
+        <tr style="border:1px solid black;">
+            <td style="border:1px solid black;">Suresh babu</td>
+            <td style="border:1px solid black;">108</td>
+            <td style="border:1px solid black;">Murder</td>
+        </tr>
+        <tr style="border:1px solid black;">
+            <td style="border:1px solid black;">Manideep</td>
+            <td style="border:1px solid black;">104</td>
+            <td style="border:1px solid black;">Robbery</td>
+        </tr>
+        <tr style="border:1px solid black;">
+            <td style="border:1px solid black;">Abdul shukur</td>
+            <td style="border:1px solid black;">101</td>
+            <td style="border:1px solid black;">Thief</td>
+        </tr>
+
+    </table>
     <table class="crime-table">
         <tr>
             <th>Record.no</th>
@@ -58,6 +92,58 @@
             <td>Illegal copying</td>
         </tr>
     </table>
+    <br>
+    <br>
+    <hr>
+    <h1>Search Criminal Records</h1>
+    <form action="process.php" method="post">
+        <div>
+        <label>Search</label>
+        <input type="text" name="firstname" placeholder="enter first name">
+        <br>
+        <br>
+        </div>
+        <div>
+            <label>&nbsp;&nbsp;Case No</label>
+            <input type="number" name="case no" placeholder="case no">
+            <br>
+            <br>
+        </div>
+        <div>
+            <label>Date of Birth</label>
+            <input type="date" name="Date of Birth">
+            <br>
+            <br>
+        </div>
+        <!--
+        <div>
+            <label>Martial Status</label>
+            <input type="text" name="status">
+            <br>
+            <br>
+        </div>
+        <div>
+            <label>Age</label>
+            <input type="number" name="age">
+            <br>
+            <br>
+        </div>
+        <div>
+            <label>Gmail</label>
+            <input type="Email" name="email">
+        </div>
+    -->
+        <input type="submit" name="submit">
+
+
+    </form>
+
+
+
+
+
+
+
     
 </body>
 </html>
