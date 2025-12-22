@@ -1,0 +1,29 @@
+body{
+    background-image:url("C:\Users\M.Sravani\Desktop\web technology\images\cs1.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
+h1{
+    text-align:center;
+}
+.crime-table{
+    background-color:azure;
+    text-align:center;
+    width:80%;
+    margin:auto;
+    border-collapse:collapse;
+    margin-top:50px;
+
+}
+.crime-table th,td{
+    color:black;
+    border:2px solid black;
+    padding:10px;
+}
+.crime-table th{
+    background-color:darkblue;
+    color:white;
+}
