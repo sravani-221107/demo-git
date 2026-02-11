@@ -1,0 +1,3 @@
+Hello, this is a demonstration of PHP file handling functions.
+This file is created using fopen and fwrite functions.
+This line is appended to the file.
