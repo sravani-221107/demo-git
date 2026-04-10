@@ -1,0 +1,9 @@
+# Dependency directories
+vendor/
+
+# Environment files
+.env
+
+# Others
+.DS_Store
+error_log
