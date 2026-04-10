@@ -1,7 +1,6 @@
 {
     "require": {
         "mongodb/mongodb": "^2.2",
-        "vlucas/phpdotenv": "*",
-        "google/apiclient": "*"
+        "vlucas/phpdotenv": "^5.6"
     }
 }
