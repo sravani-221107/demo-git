@@ -17,17 +17,57 @@
         }
         nav{
             background-color:rgb(1, 1, 68);
-            padding:10px;
-            text-align:center;
+            padding:15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        nav a{
+        .nav-main a {
             color:white;
-            text-decoration: rgb(220, 255, 223);
-            margin:5px;
+            text-decoration: none;
+            margin:0 15px;
             font-weight:bold;
+            transition: color 0.3s;
         }
-        nav a:hover{
-            text-decoration: underline;
+        .nav-main a:hover{
+            color: rgb(150, 200, 255);
+        }
+        .nav-auth {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .btn-register, .btn-login {
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            color: white;
+            border: 2px solid transparent;
+        }
+        .btn-register {
+            background-color: #28a745;
+            box-shadow: 0 4px 6px rgba(40, 167, 69, 0.3);
+        }
+        .btn-register:hover {
+            background-color: transparent;
+            color: #28a745;
+            border-color: #28a745;
+            box-shadow: 0 0 12px rgba(40, 167, 69, 0.6);
+            transform: translateY(-2px);
+        }
+        .btn-login {
+            background-color: #007bff;
+            box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+        }
+        .btn-login:hover {
+            background-color: transparent;
+            color: #007bff;
+            border-color: #007bff;
+            box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+            transform: translateY(-2px);
         }
         .hero{
             text-align:center;
@@ -76,9 +116,31 @@
         }
         th{
             background-color:darkblue;
-            color:black;
+            color:white; /* Changed to white for better contrast */
         }
-
+        .add-form-container {
+            background-color: white;
+            color: darkblue;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .add-form-container input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .add-form-container button {
+            padding: 10px 15px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
     </head>
     <body>
@@ -88,88 +150,58 @@
             <p>Official crime information portal</p>
         </header>
         <nav>
-            <a href="home.html">Home</a>
-            <a href="registration.html">Register</a>
-            <a href="login.html">Login</a>
-            <a href="records.html">Records</a>
-            <a href="search.html">search</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+            <div class="nav-main">
+                <a href="home.html">Home</a>
+                <a href="records.html">Records</a>
+                <a href="search.html">Search</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-auth">
+                <a href="registration.html" class="btn-register">Register</a>
+                <a href="login.html" class="btn-login">Login</a>
+            </div>
         </nav>
         <section class="hero">
             <h2>Criminal Records Management System</h2>
             <p>Information about criminals</p>
         </section>
+
+        <section class="add-form-container" align="center">
+            <h3>Add New Record</h3>
+            <form id="add-record-form">
+                <input type="text" id="r-name" placeholder="Name" required>
+                <input type="text" id="r-case" placeholder="Case No" required>
+                <input type="text" id="r-crime" placeholder="Crime" required>
+                <input type="text" id="r-status" placeholder="Status" required>
+                <button type="submit">Add Record</button>
+            </form>
+        </section>
         <section class="records" align="center">
             <h2 style="color:darkblue">Criminal Profiles</h2>
-            <div class="record-container">
-                <div class="record-card" align=""center>
-                    <h3>Name: Ravi Kumar</h3>
-                    <p>Crime: Murder</p>
-                    <p>Case No: 101</p>
-                    <p>Status: Arrested</p>
-                </div>
-                <div class="record-card">
-                    <h3>Name: Suresh Babu</h3>
-                    <p>Crime: Robbery</p>
-                    <p>Case No: 103</p>
-                    <p>Status: Investigating</p>
-                </div>
-                <div class="record-card">
-                    <h3>Name:Kapil varma</h3>
-                    <p>Crime: Murder</p>
-                    <p>Case No: 101</p>
-                    <p>Status: Arrested</p>
-                </div>
-                <div class="record-card">
-                    <h3>Name: Ravi Kumar</h3>
-                    <p>Crime: Rape attempt</p>
-                    <p>Case No: 106</p>
-                    <p>Status:Searching</p>
-                </div>
+            <div class="record-container" id="cards-container">
             </div>
-
         </section>
         <section class="Table section">
             <h2 style="text-align:center;margin-bottom:20px;color:darkblue;">
             Criminal Record Table</h2>
             <table align="center">
-                <tr>
-                    <th>Name</th>
-                    <th>case</th>
-                    <th>Crime</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>Ravi Kumar</td>
-                    <td>Murder</td>
-                    <td>101</td>
-                    <td>Arrested</td>
-                </tr>
-                <tr>
-                    <td>Suresh Babu</td>
-                    <td>Robbery</td>
-                    <td>103</td>
-                    <td>Investigating</td>
-                </tr>
-                <tr>
-                    <td>kapil varma</td>
-                    <td>Murder</td>
-                    <td>101</td>
-                    <td>Arrested</td>
-                </tr>
-                <tr>
-                    <td>Ravi Kumar</td>
-                    <td>Rape attempt</td>
-                    <td>106</td>
-                    <td>Searching</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Case No</th>
+                        <th>Crime</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
             </table>
-        
         </section>
 
 
-        
+        <script src="java.js"></script>
     </body>
 
 </html>

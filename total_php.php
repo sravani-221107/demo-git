@@ -3,25 +3,7 @@ setcookie("fav_food","pizza",time()-0,"/");
 setcookie("fav_drink","coffee",time()+(86400*3),"/");
 setcookie("fav_desert","ice cream",time()+(86400*4),"/");
 
-
-
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?PHP
 

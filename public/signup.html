@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<?php
-require '../vendor/autoload.php';
-
-$mongoUri = "mongodb://localhost:27017";
-
-try {
-    $client = new MongoDB\Client($mongoUri);
-    $db = $client->userDB;
-} catch (Exception $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
-?>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+<html>
+ <body>
+    <form action="../backend/signup.php" method="POST">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <button type="submit">Signup</button>
+    </form>
 </body>
 </html>
+
+
+
+

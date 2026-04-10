@@ -1,5 +1,5 @@
 <?php
-/*
+
 $n=$_POST["n"];
 
 for($i=0;$i<=$n;$i++){
@@ -64,8 +64,8 @@ echo count($capitals);
 echo "<br>";
 $capital=$capitals[$_POST["country"]];
 echo "$capital";
-*/
-/*
+
+
 if(isset($_POST['login'])){
     $username=$_POST['username'];
     $password=$_POST['password'];
@@ -77,12 +77,14 @@ if(isset($_POST['login'])){
     }
 
 }
-    */
-/*
+    
+
+
 foreach($_POST as $key=>$value){
     echo "{$key}=>{$value}<br>";
 }
-*/
+
+
 $branch=null;
 if(isset($_POST['submit'])){
     $branch=$_POST['branch'];
@@ -98,7 +100,7 @@ else{
 <body>
     
     <form action="loops.php" method="post" autocomplete="off">
-        <!--
+        
         <label>n:</label>
         <input type="number" name="n">
 
@@ -111,17 +113,12 @@ else{
     <label>password:</label>
     <input type="password" name="password"><br>
     <input type="submit" name="login">
--->
+
     <input type="radio" name="branch" value="CSE"> CSE<br>
     <input type="radio" name="branch" value="ECE">ECE<br>
     <input type="radio" name="branch" value="MECH">MECH<br>
     <input type="radio" name="branch" value="CIVIL">CIVIL<br>
     <input type="submit" name="submit">
-
-
-
-
-
 
 </body>
 </html>
