@@ -1,7 +1,14 @@
 <?php
+session_start();
 include "db.php";
 $msg = "";
 $msgType = "";
+
+// If already logged in, redirect to dashboard
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -11,23 +18,32 @@ if (isset($_POST['login'])) {
     $password=trim($password);
     //case handling
     $email=strtolower($email);
-    //database check
-    $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-    $result = mysqli_query($conn, $query);
+    
+    try {
+        //database check
+        $collection = $db->users;
+        $user = $collection->findOne(['email' => $email]);
 
-    if (mysqli_num_rows($result) > 0) {
-        //string comparision
-        $row=mysqli_fetch_assoc($result);
-        if(strcmp($row['password'],$password)==0){
-            $msg = "Login successful! Welcome back.";
-            $msgType = "success";
-        }
-        else{
-            $msg = "Password does not match!";
+        if ($user) {
+            // Verify password
+            if (password_verify($password, $user['password'])) {
+                // Successful login
+                $_SESSION['user_id'] = (string)$user['_id'];
+                $_SESSION['user_name'] = $user['name'];
+                $_SESSION['user_email'] = $user['email'];
+                
+                header("Location: dashboard.php");
+                exit();
+            } else {
+                $msg = "Invalid email or password!";
+                $msgType = "error";
+            }
+        } else {
+            $msg = "Invalid email or password!";
             $msgType = "error";
         }
-    } else {
-        $msg = "Invalid email or password!";
+    } catch (Exception $e) {
+        $msg = "Database error: " . $e->getMessage();
         $msgType = "error";
     }
 }

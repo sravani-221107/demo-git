@@ -25,15 +25,37 @@ if (isset($_POST['register'])) {
         //format input
         $name=ucwords(strtolower($name));
         $email=strtolower($email);
-        //insert into database
-        $query = "INSERT INTO users (name, email, password)
-                  VALUES ('$name', '$email', '$password')";
+        
+        try {
+            // Check for duplicate email
+            $collection = $db->users;
+            $existingUser = $collection->findOne(['email' => $email]);
+            
+            if ($existingUser) {
+                $msg = "Registration failed: Email already exists!";
+                $msgType = "error";
+            } else {
+                // Hash the password
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                
+                //insert into database
+                $insertResult = $collection->insertOne([
+                    'name' => $name,
+                    'email' => $email,
+                    'password' => $hashedPassword,
+                    'created_at' => new MongoDB\BSON\UTCDateTime()
+                ]);
 
-        if(mysqli_query($conn, $query)) {
-            $msg = "Registration successful!";
-            $msgType = "success";
-        } else {
-            $msg = "Registration failed!";
+                if($insertResult->getInsertedCount() > 0) {
+                    $msg = "Registration successful!";
+                    $msgType = "success";
+                } else {
+                    $msg = "Registration failed!";
+                    $msgType = "error";
+                }
+            }
+        } catch (Exception $e) {
+            $msg = "Database error: " . $e->getMessage();
             $msgType = "error";
         }
     }
